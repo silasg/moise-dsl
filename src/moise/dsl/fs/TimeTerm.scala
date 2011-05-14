@@ -1,7 +1,6 @@
 package moise.dsl.fs
 
 trait TimeTerm {
-  //TODO: noch package-private machen, hat von außen nix zu tun
   def toAttributeString: String
 }
 
