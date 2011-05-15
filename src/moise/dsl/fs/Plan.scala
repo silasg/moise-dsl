@@ -1,16 +1,25 @@
 package moise.dsl.fs
 
-case class Choice(goals: List[SchemeElement]) extends Plan(goals) {
-  override def or (s: SchemeElement) = Choice(goals ::: s :: Nil)
-}
-case class Sequence(goals: List[SchemeElement]) extends Plan(goals) {
-  override def then (s: SchemeElement) = Sequence(goals ::: s :: Nil)
-}
-case class Parallel(goals: List[SchemeElement]) extends Plan(goals) {
-  override def parallel_with (s: SchemeElement) = Parallel(goals ::: s :: Nil)
+import moise.{PlanOperatorType, Parallel => ParallelOperator,
+              Sequence => SequenceOperator, Choice => ChoiceOperator}
+
+case class Choice(override val children: List[SchemeElement]) extends Plan(children) {
+  override def or (s: SchemeElement) = Choice(children ::: s :: Nil)
+  val operator = ChoiceOperator
 }
 
-abstract class Plan(goals: List[SchemeElement]) extends SchemeElement {
+case class Sequence(override val children: List[SchemeElement]) extends Plan(children) {
+  override def then (s: SchemeElement) = Sequence(children ::: s :: Nil)
+  val operator = SequenceOperator
+}
+
+case class Parallel(override val children: List[SchemeElement]) extends Plan(children) {
+  override def parallel_with (s: SchemeElement) = Parallel(children ::: s :: Nil)
+  val operator = ParallelOperator
+}
+
+abstract class Plan(val children: List[SchemeElement]) extends SchemeElement {
+  val operator: PlanOperatorType
   var successRate: Option[Double] = None
   def with_a_success_rate_of(d: Double) = {
     successRate = Some(d)
