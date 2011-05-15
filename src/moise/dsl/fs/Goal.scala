@@ -26,7 +26,7 @@ object maintain extends goalTypeVerb {
   val typeXb = MaintenanceXb
 }
 
-class Goal(val name: String) {
+class Goal(val name: String) extends SchemeElement {
   var ttf: Option[TimeTerm] = None
   var description: Option[String] = None
   var goalType: Option[GoalTypeXb] = None
@@ -42,11 +42,13 @@ class Goal(val name: String) {
     this
   }
 
+  // TODO: irgendwie noch einen Parameter ergänzen, damit Method Chaining klappt
   def now = {
     ttf = Some(Now)
     this
   }
 
+  // TODO: irgendwie noch einen Parameter ergänzen, damit Method Chaining klappt
   def never = {
     ttf = Some(Never)
     this
@@ -57,7 +59,8 @@ class Goal(val name: String) {
     this
   }
 
-  def by_at_least (a: AgentCount) {
+  // TODO: Klären warum ohne Angabe des Typs hier BoxedUnit zurückgegeben wird
+  def by_at_least (a: AgentCount): Goal = {
     min = Some(a.count)
     this
   }
