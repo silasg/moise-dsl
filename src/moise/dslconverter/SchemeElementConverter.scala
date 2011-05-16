@@ -3,13 +3,17 @@ package moise.dslconverter
 import moise.dsl.fs.{Goal, Plan, SchemeElement}
 import moise.{Goal => GoalXb, GoalDefType => GoalDefXb, PlanType => PlanXb}
 
-import scala.collection.mutable.ListBuffer
+import scala.collection.mutable.HashMap
 
 
 object SchemeElementConverter {
-  val usedPlanNames = new ListBuffer[String]
+  val usedPlanNames = new HashMap[Plan, String]
 
-  def goalToGoalXb(g: Goal) = GoalXb(g.name)
+  def toGoalXb(s: SchemeElement) =
+    s match {
+      case g: Goal => GoalXb(g.name)
+      case p: Plan => GoalXb(getNameForPlan(p))
+    }
 
   def toGoalDefXb(s: SchemeElement): GoalDefXb = {
     s match {
@@ -35,22 +39,26 @@ object SchemeElementConverter {
                         successrate = p.successRate)
    GoalDefXb(argument = Seq(),
               plan = Some(planXb),
-              id = generatePlanName(p),
+              id = getNameForPlan(p),
               min = p.min,
               ds = p.description,
               typeValue = p.goalType,
               ttf = p.ttf map { _.toAttributeString })
   }
 
-  private def generatePlanName(p: Plan): String = {
-    var name = ""
-    for (c <- p.children) c match {
-      case g: Goal =>  name = name + "_" + g.name
-      case pl: Plan => name = name + "_" + generatePlanName(pl)
+  private def getNameForPlan(p: Plan): String = {
+    def generatePlanName(p: Plan) = {
+      var name = ""
+      for (c <- p.children) c match {
+        case g: Goal =>  name = name + "_" + g.name
+        case pl: Plan => name = name + "_" + getNameForPlan(pl)
+      }
+
+      def nameAlreadyUsed = usedPlanNames.exists(_._2 == name)
+      while (nameAlreadyUsed) name = name + "_"
+      usedPlanNames += ((p, name))
+      name
     }
-    while (usedPlanNames.contains(name))
-      name = name + "_"
-    usedPlanNames += name
-    name
+    usedPlanNames.getOrElse(p, generatePlanName(p))
   }
 }
