@@ -29,18 +29,18 @@ object two extends MoreThanOneDirection
 trait RoleRelSignature {
   var relType: Option[RelType] = None
   def from(r: Role): RoleRelSignature
-  def to(r: Role):  RoleRelSignature
-  def between (groups: BubbleTraitForGroups):  RoleRelSignature
-  def inside (group: BubbleTraitForGroup):  RoleRelSignature
-  def in (dir: RoleRelDirection):  RoleRelSignature
-  def is_valid_for (g: BubbleTraitForSubGroups):  RoleRelSignature
-  def is_not_valid_for (g: BubbleTraitForSubGroups):  RoleRelSignature
+  def to(r: Role): RoleRelSignature
+  def between (groups: BubbleTraitForGroups): RoleRelSignature
+  def inside (group: BubbleTraitForGroup): RoleRelSignature
+  def in (dir: RoleRelDirection): RoleRelSignature
+  def is_valid_for (g: BubbleTraitForSubGroups): RoleRelSignature
+  def is_not_valid_for (g: BubbleTraitForSubGroups): RoleRelSignature
 }
 
 // der ganze Aufwand hier mit RoleRelConstructor dient nur dazu, später z.B. nicht
 // "Link()" für einen neuen Link aufrufen zu müssen, sonden nur "Link"
-abstract class RoleRelConstructor extends RoleRelSignature {
-  def construct: RoleRelSignature
+abstract class RoleRelConstructor[R<:RoleRelSignature] extends RoleRelSignature {
+  def construct: RoleRel[R]
   def from(r: Role) = construct from r
   def to(r: Role) = construct to r
   def between(groups: BubbleTraitForGroups) = construct between groups
@@ -50,7 +50,7 @@ abstract class RoleRelConstructor extends RoleRelSignature {
   def is_not_valid_for(g: BubbleTraitForSubGroups) = construct is_not_valid_for g
 }
 
-abstract case class RoleRel extends RoleRelSignature{
+abstract case class RoleRel[R<:RoleRelSignature] extends RoleRelSignature{
   var fromRole: Option[Role] = None
   var toRole: Option[Role] = None
   var scope: Option[RelScope] = None
@@ -59,12 +59,12 @@ abstract case class RoleRel extends RoleRelSignature{
 
   def from(r: Role) = {
     fromRole = Some(r)
-    this
+    this.asInstanceOf[R]
   }
 
   def to(r: Role) = {
     toRole = Some(r)
-    this
+    this.asInstanceOf[R]
   }
 
   def between (groups: BubbleTraitForGroups) = {
