@@ -7,9 +7,10 @@ object Group {
   def named(s: String) = Group(s)
 }
 
-case class Group(val name: String) extends Monitorable {
+case class Group(val name: String) extends Monitorable with CardinalityType {
   var roles: ListBuffer[GroupRole] = ListBuffer()
   var subGroups: ListBuffer[SubGroup] = ListBuffer()
+  var cardinalities: ListBuffer[Cardinality] = ListBuffer()
   var links: List[LinkClass] = List()
   var compatibilities: List[CompatibilityClass] = List()
 
@@ -22,6 +23,13 @@ case class Group(val name: String) extends Monitorable {
     compatibilities = c.toList
     this
   }
+
+  def with_cardinality(c: Cardinality) = {
+    cardinalities += c
+    this
+  }
+
+  def and_cardinality(c: Cardinality) = with_cardinality(c)
 
   def including(s: SubGroup) = {
     subGroups += s

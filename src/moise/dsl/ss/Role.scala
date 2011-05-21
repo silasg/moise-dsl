@@ -6,7 +6,7 @@ object Role {
   def named(n: String) = new Role(n)
 }
 
-class Role(val name: String) {
+class Role(val name: String) extends CardinalityType {
   val extendedRoles = ListBuffer[Role]()
 
   def complements(roles: Role*) = {
