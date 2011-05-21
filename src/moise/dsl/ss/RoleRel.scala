@@ -69,26 +69,26 @@ abstract case class RoleRel[R<:RoleRelSignature] extends RoleRelSignature{
 
   def between (groups: BubbleTraitForGroups) = {
     scope = Some(InterGroup)
-    this
+    this.asInstanceOf[R]
   }
 
   def inside (group: BubbleTraitForGroup) = {
     scope = Some(IntraGroup)
-    this
+    this.asInstanceOf[R]
   }
 
   def in (dir: RoleRelDirection) = {
     biDir = Some(dir.biDir)
-    this
+    this.asInstanceOf[R]
   }
 
   def is_valid_for (g: BubbleTraitForSubGroups) = {
     extendsToSubGroups = Some(true)
-    this
+    this.asInstanceOf[R]
   }
 
   def is_not_valid_for (g: BubbleTraitForSubGroups) = {
     extendsToSubGroups = Some(false)
-    this
+    this.asInstanceOf[R]
   }
 }

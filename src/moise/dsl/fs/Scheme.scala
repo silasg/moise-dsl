@@ -4,19 +4,12 @@ object Scheme {
   def with_goal(s: SchemeElement) = new Scheme(s)
 }
 
-class Scheme(val goal: SchemeElement) {
-  var monitoringScheme: Option[Scheme] = None
+class Scheme(val goal: SchemeElement) extends Monitorable {
   var name: Option[String] = None
   var missions: List[Mission] = List()
 
-
   def named(n: String) = {
     name = Some(n)
-    this
-  }
-
-  def monitored_by(s: Scheme) = {
-    monitoringScheme = Some(s)
     this
   }
 

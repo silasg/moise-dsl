@@ -1,11 +1,11 @@
 package moise.dsl.ss
 
 // Beschreibung siehe Link
-object Compatibility extends RoleRelConstructor[CompatibiltyClass] {
-  def construct = CompatibiltyClass()
+object Compatibility extends RoleRelConstructor[CompatibilityClass] {
+  def construct = CompatibilityClass()
 }
 
-case class CompatibiltyClass extends RoleRel[CompatibiltyClass] {
+case class CompatibilityClass extends RoleRel[CompatibilityClass] {
   relType = Some(compatibility)
 
   object compatibility extends RelType {
