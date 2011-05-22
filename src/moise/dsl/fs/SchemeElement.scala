@@ -1,6 +1,6 @@
 package moise.dsl.fs
 
-
+// TODO: scalaxb importe entfernen
 import moise.{Achievement => AchievementXb}
 import moise.{Maintenance => MaintenanceXb}
 import moise.{GoalType => GoalTypeXb}
@@ -19,16 +19,13 @@ object maintain extends goalTypeVerb {
 
 // SchemeElement implementiert bis auf den Namen schon alles von Goal, weil ein Plan,
 // der ja auch von SchemeElement erbt, implizit immer auch ein Goal ist (bzw. wird)
-abstract class SchemeElement {
+abstract case class SchemeElement(var ttf: Option[TimeTerm] = None,
+                                  var description: Option[String] = None,
+                                  var goalType: Option[GoalTypeXb] = None,
+                                  var min: Option[BigInt] = None) {
   def parallel_with (s: SchemeElement) = Parallel(this :: s :: Nil)
   def or (s: SchemeElement) = Choice(this :: s :: Nil)
   def then (s: SchemeElement) = Sequence(this :: s :: Nil)
-
-
-  var ttf: Option[TimeTerm] = None
-  var description: Option[String] = None
-  var goalType: Option[GoalTypeXb] = None
-  var min: Option[BigInt] = None
 
   def described_as(s: String) = {
     description = Some(s)

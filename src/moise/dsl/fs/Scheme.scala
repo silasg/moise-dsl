@@ -4,9 +4,9 @@ object Scheme {
   def with_goal(s: SchemeElement) = new Scheme(s)
 }
 
-class Scheme(val goal: SchemeElement) extends Monitorable {
-  var name: Option[String] = None
-  var missions: List[Mission] = List()
+case class Scheme(val goal: SchemeElement,
+                  var name: Option[String] = None,
+                  var missions: List[Mission] = List()) extends Monitorable {
 
   def named(n: String) = {
     name = Some(n)

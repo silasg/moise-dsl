@@ -1,7 +1,7 @@
 package moise.dsl.ss
 
 trait RelType {
-  val relTypeString: String
+  val relTypeString: String // TODO: entfernen
 }
 
 trait BubbleTraitForGroup
@@ -50,12 +50,11 @@ abstract class RoleRelConstructor[R<:RoleRelSignature] extends RoleRelSignature 
   def is_not_valid_for(g: BubbleTraitForSubGroups) = construct is_not_valid_for g
 }
 
-abstract case class RoleRel[R<:RoleRelSignature] extends RoleRelSignature{
-  var fromRole: Option[Role] = None
-  var toRole: Option[Role] = None
-  var scope: Option[RelScope] = None
-  var biDir: Option[Boolean] = None
-  var extendsToSubGroups: Option[Boolean] = None
+abstract case class RoleRel[R<:RoleRelSignature](var fromRole: Option[Role] = None,
+                                                  var toRole: Option[Role] = None,
+                                                  var scope: Option[RelScope] = None,
+                                                  var biDir: Option[Boolean] = None,
+                                                  var extendsToSubGroups: Option[Boolean] = None) extends RoleRelSignature{
 
   def from(r: Role) = {
     fromRole = Some(r)

@@ -2,6 +2,8 @@ package moise.dsl.ss
 
 trait LinkType extends RelType
 
+// TODO relTypeString entfernen
+
 object authority extends LinkType {
   val relTypeString = "authority"
 }

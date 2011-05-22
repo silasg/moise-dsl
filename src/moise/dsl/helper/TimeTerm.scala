@@ -1,10 +1,10 @@
 package moise.dsl.helper
 
+import moise.dsl.helper.Implicits.intToTimeSpan
+
 trait TimeTerm
 
 case class TimeSpan(duration: Int) extends TimeTerm {
-  implicit def intToTimeSpan(i: Int) = TimeSpan(i)
-
   def milliseconds = duration
   def seconds = milliseconds * 1000
   def minutes = seconds * 60

@@ -21,9 +21,12 @@ case class NormWithoutMission(val name: String, val normType: NormType, val role
   def participation_in(m: Mission) = Norm(name, normType, role, m)
 }
 
-case class Norm(val name: String, val normType: NormType, val role: Role, val mission: Mission) {
-  var timeConstraint: Option[TimeTerm] = None
-  var condition: Option[String] = None
+case class Norm(val name: String, 
+                val normType: NormType,
+                val role: Role,
+                val mission: Mission,
+                var timeConstraint: Option[TimeTerm] = None,
+                var condition: Option[String] = None) {
 
   def valid_for(t: TimeSpan) = {
     timeConstraint = Some(t)

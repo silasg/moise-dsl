@@ -19,7 +19,6 @@ trait Numerable[T] {
   }
 
   def and_at_most(n: Number) = at_most(n)
-
 }
 
 case class SubGroup(val group: Group) extends Numerable[SubGroup]

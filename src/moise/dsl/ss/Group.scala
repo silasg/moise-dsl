@@ -7,13 +7,13 @@ object Group {
   def named(s: String) = Group(s)
 }
 
-case class Group(val name: String) extends Monitorable with CardinalityType {
-  var roles: ListBuffer[GroupRole] = ListBuffer()
-  var subGroups: ListBuffer[SubGroup] = ListBuffer()
-  var cardinalities: ListBuffer[Cardinality] = ListBuffer()
-  var links: List[LinkClass] = List()
-  var compatibilities: List[CompatibilityClass] = List()
-
+case class Group(val name: String,
+                  var roles: ListBuffer[GroupRole] = ListBuffer(),
+                  var subGroups: ListBuffer[SubGroup] = ListBuffer(),
+                  var cardinalities: ListBuffer[Cardinality] = ListBuffer(),
+                  var links: List[LinkClass] = List(),
+                  var compatibilities: List[CompatibilityClass] = List()) extends Monitorable with CardinalityType {
+  
   def with_links(l: LinkClass*) = {
     links = l.toList
     this
@@ -44,5 +44,4 @@ case class Group(val name: String) extends Monitorable with CardinalityType {
   }
 
   def and(r: GroupRole) = consists_of(r)
-
 }

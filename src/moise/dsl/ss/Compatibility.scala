@@ -1,5 +1,7 @@
 package moise.dsl.ss
 
+// TODO relTypeString entfernen
+
 // Beschreibung siehe Link
 object Compatibility extends RoleRelConstructor[CompatibilityClass] {
   def construct = CompatibilityClass()

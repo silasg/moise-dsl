@@ -6,8 +6,8 @@ object Role {
   def named(n: String) = new Role(n)
 }
 
-class Role(val name: String) extends CardinalityType {
-  val extendedRoles = ListBuffer[Role]()
+case class Role(val name: String) extends CardinalityType {
+  val extendedRoles = ListBuffer[Role]() //TODO: ggf. in Constructor verschieben
 
   def complements(roles: Role*) = {
     roles.foreach(extendedRoles += _)
