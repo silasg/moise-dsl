@@ -1,7 +1,5 @@
 package moise.dsl.helper
 
-import moise.dsl.helper.Implicits.intToTimeSpan
-
 trait TimeTerm
 
 case class TimeSpan(duration: Int) extends TimeTerm {

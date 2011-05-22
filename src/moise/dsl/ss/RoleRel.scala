@@ -1,8 +1,6 @@
 package moise.dsl.ss
 
-trait RelType {
-  val relTypeString: String // TODO: entfernen
-}
+trait RelType
 
 trait BubbleTraitForGroup
 trait BubbleTraitForGroups

@@ -1,16 +1,8 @@
 package moise.dsl.ss
 
 trait LinkType extends RelType
-
-// TODO relTypeString entfernen
-
-object authority extends LinkType {
-  val relTypeString = "authority"
-}
-
-object communication extends LinkType {
-  val relTypeString = "communication"
-}
+case object authority extends LinkType
+case object communication extends LinkType
 
 // Link erbt alle von RoleRelSignature vorgegebenen Methoden, da es
 // RoleRelConstructor beerbt und gibt für den Aufruf einer jeden (wir wissen ja
