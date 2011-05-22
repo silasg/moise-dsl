@@ -4,7 +4,7 @@ import moise.dsl.ss.Role
 import moise.dsl.fs.Mission
 import moise.dsl.helper.{TimeTerm, TimeSpan, NotNumericTimeTerm}
 
-trait NormType
+abstract case class NormType
 case object Obligation extends NormType
 case object Permission extends NormType
 
