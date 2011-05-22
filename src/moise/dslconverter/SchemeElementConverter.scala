@@ -29,7 +29,7 @@ object SchemeElementConverter {
                                           min = g.min,
                                           ds = g.description,
                                           typeValue = g.goalType,
-                                          ttf = g.ttf map { _.toAttributeString })
+                                          ttf = g.ttf map { TimeTermConverter.convertToAttributeString(_) })
 
  // Diese Methode erstellt das Goal um den Plan als Wrapper
  private def convertToPlanXb(p: Plan) = {
@@ -43,7 +43,7 @@ object SchemeElementConverter {
               min = p.min,
               ds = p.description,
               typeValue = p.goalType,
-              ttf = p.ttf map { _.toAttributeString })
+              ttf = p.ttf map { TimeTermConverter.convertToAttributeString(_) })
   }
 
   private def getNameForPlan(p: Plan): String = {

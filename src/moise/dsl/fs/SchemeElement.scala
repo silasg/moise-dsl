@@ -4,6 +4,7 @@ package moise.dsl.fs
 import moise.{Achievement => AchievementXb}
 import moise.{Maintenance => MaintenanceXb}
 import moise.{GoalType => GoalTypeXb}
+import moise.dsl.helper.{TimeTerm, TimeSpan, now, never}
 
 trait goalTypeVerb {
   val typeXb: GoalTypeXb
@@ -41,17 +42,17 @@ abstract class SchemeElement {
 
   // TODO: irgendwie noch einen Parameter ergänzen, damit Method Chaining klappt
   def now = {
-    ttf = Some(Now)
+    ttf = Some(moise.dsl.helper.now)
     this
   }
 
   // TODO: irgendwie noch einen Parameter ergänzen, damit Method Chaining klappt
   def never = {
-    ttf = Some(Never)
+    ttf = Some(moise.dsl.helper.never)
     this
   }
 
-  def in(t: TimeTerm) = {
+  def in(t: TimeSpan) = {
     ttf = Some(t)
     this
   }
