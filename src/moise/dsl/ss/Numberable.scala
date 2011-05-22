@@ -25,6 +25,6 @@ case class SubGroup(val group: Group) extends Numerable[SubGroup]
 trait CardinalityType {
   val name: String
 }
-case class Cardinality(val o: CardinalityType) extends Numerable[Cardinality]
+case class Cardinality(val cardType: CardinalityType) extends Numerable[Cardinality]
 case class GroupRole(val role: Option[Role]) extends Numerable[GroupRole]
 object any_role extends GroupRole(None)
