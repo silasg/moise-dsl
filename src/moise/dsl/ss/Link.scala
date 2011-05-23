@@ -1,9 +1,5 @@
 package moise.dsl.ss
 
-trait LinkType extends RelType
-case object authority extends LinkType
-case object communication extends LinkType
-
 // Link erbt alle von RoleRelSignature vorgegebenen Methoden, da es
 // RoleRelConstructor beerbt und gibt für den Aufruf einer jeden (wir wissen ja
 // nicht, welche zuerst aufgerufen wird, da jede optional ist) eine neue Instanz
