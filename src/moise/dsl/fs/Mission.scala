@@ -29,6 +29,12 @@ case class Mission(val name: String, val goals: Seq[SchemeElement],
     this
   }
 
+  def by_exactly(agents: AgentCount) = {
+    min = Some(agents.count)
+    max = Some(agents.count)
+    this
+  }
+
   def and_at_most(agents: AgentCount) = by_at_most(agents)
   def and_at_least(agents: AgentCount) = by_at_least(agents)
 }

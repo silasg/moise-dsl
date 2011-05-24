@@ -18,7 +18,7 @@ object GroupConverter {
       id = g.name,
       min = min,
       max = max,
-      monitoringscheme = g.monitoringScheme.map({ s => s.name }).getOrElse(Some(""))) // ka, warum scalaxb immer ein Monitoring Scheme will => im zweifelsfall "" übergeben
+      monitoringscheme = g.monitoringScheme map { _.name.getOrElse("") }) // falls als monitoring Scheme ein Schema ohne name/id angegeben wurde (was syntaktisch korrekt aber hier sinnfrei ist), "" übergeben
 
    private def convertRoles(r: ListBuffer[GroupRole]) = {
     if (r.length == 0) None

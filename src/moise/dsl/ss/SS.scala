@@ -3,7 +3,7 @@ package moise.dsl.ss
 trait SSSignature {
   def with_roles (roles: Role*)
   def with_linktypes (linktypes: CustomLinkType*)
-  def with_group(group: Group)
+  def with_group(group: Group): SS
 }
 
 object SS extends SSSignature {
@@ -18,7 +18,7 @@ case class SS() {
   var group: Option[Group] = None
 
   def with_roles (r: Role*) = {
-    roles = roles.toList
+    roles = r.toList
     this
   }
 

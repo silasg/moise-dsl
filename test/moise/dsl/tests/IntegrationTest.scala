@@ -15,5 +15,9 @@ class IntegrationTest {
     def tearDown() {}
 
     @Test
-    def can_formulate_house_building_example = assertTrue(true)
+    def can_formulate_house_building_example = {
+      
+
+      assertTrue(true)
+    }
 }

@@ -18,6 +18,12 @@ trait Numerable[T] {
     this.asInstanceOf[T]
   }
 
+  def exactly(n: Number) = {
+    min = Some(n.i)
+    max = Some(n.i)
+    this.asInstanceOf[T]
+  }
+
   def and_at_most(n: Number) = at_most(n)
 }
 

@@ -5,6 +5,7 @@ import moise.dsl.helper.{TimeTerm, TimeSpan, now, never}
 trait GoalTypeVerb
 case object achieve extends GoalTypeVerb
 case object maintain extends GoalTypeVerb
+case object reach extends GoalTypeVerb // reach macht keine Aussage über den Goaltype
 
 // SchemeElement implementiert bis auf den Namen schon alles von Goal, weil ein Plan,
 // der ja auch von SchemeElement erbt, implizit immer auch ein Goal ist (bzw. wird)
@@ -22,7 +23,10 @@ abstract case class SchemeElement(var ttf: Option[TimeTerm] = None,
   }
 
   def to (g: GoalTypeVerb) = {
-    goalType = Some(g)
+    g match {
+      case `reach` => goalType = None
+      case _ => goalType = Some(g)
+    }
     this
   }
 
