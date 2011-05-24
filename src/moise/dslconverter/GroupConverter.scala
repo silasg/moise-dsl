@@ -40,7 +40,7 @@ object GroupConverter {
 
   private def convertConstraints(cardinalities: ListBuffer[Cardinality],
                                   compatibilities: List[CompatibilityClass]) =
-    if (cardinalities.length == 0 || compatibilities.length == 0 ) None
+    if (cardinalities.length == 0 && compatibilities.length == 0 ) None
     else Some(
        ConstraintsXb(cardinality = cardinalities map { CardinalityConverter.convertCardinality(_) },
                 compatibility = compatibilities map { RoleRelConverter.convertCompatibility(_) })

@@ -1,8 +1,8 @@
 package moise.dsl.ss
 
 trait SSSignature {
-  def with_roles (roles: Role*)
-  def with_linktypes (linktypes: CustomLinkType*)
+  def with_roles (roles: Role*): SS
+  def with_linktypes (linktypes: CustomLinkType*): SS
   def with_group(group: Group): SS
 }
 
