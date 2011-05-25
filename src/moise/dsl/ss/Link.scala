@@ -16,6 +16,7 @@ object Link extends RoleRelSignature {
   def in(dir: RoleRelDirection) = LinkClass() in dir
   def is_valid_for(g: BubbleTraitForSubGroups) = LinkClass() is_valid_for g
   def is_not_valid_for(g: BubbleTraitForSubGroups) = LinkClass() is_not_valid_for g
+  def expresses(t: LinkType) = LinkClass() expresses t
 }
 
 case class LinkClass(var fromRole: Option[Role] = None,

@@ -12,7 +12,7 @@ case class Group(val name: String,
                   var subGroups: ListBuffer[SubGroup] = ListBuffer(),
                   var cardinalities: ListBuffer[Cardinality] = ListBuffer(),
                   var links: List[LinkClass] = List(),
-                  var compatibilities: List[CompatibilityClass] = List()) extends Monitorable with CardinalityType {
+                  var compatibilities: List[CompatibilityClass] = List()) extends Monitorable[Group] with CardinalityType {
   
   def with_links(l: LinkClass*) = {
     links = l.toList

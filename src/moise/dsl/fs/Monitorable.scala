@@ -1,10 +1,9 @@
 package moise.dsl.fs
 
-// TODO: ggf. muss hier noch ein Typ-Parameter hin, damit "this" die richtige Rückgabe bekommt
-trait Monitorable {
+trait Monitorable[T] {
   var monitoringScheme: Option[Scheme] = None
   def monitored_by(s: Scheme) = {
     monitoringScheme = Some(s)
-    this
+    this.asInstanceOf[T]
   }
 }

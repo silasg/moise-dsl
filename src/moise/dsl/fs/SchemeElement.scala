@@ -17,12 +17,12 @@ abstract case class SchemeElement(var ttf: Option[TimeTerm] = None,
   def or (s: SchemeElement) = Choice(this :: s :: Nil)
   def then (s: SchemeElement) = Sequence(this :: s :: Nil)
 
-  def described_as(s: String) = {
+  def described_as(s: String): this.type = {
     description = Some(s)
     this
   }
 
-  def to (g: GoalTypeVerb) = {
+  def to (g: GoalTypeVerb): this.type = {
     g match {
       case `reach` => goalType = None
       case _ => goalType = Some(g)
@@ -30,25 +30,22 @@ abstract case class SchemeElement(var ttf: Option[TimeTerm] = None,
     this
   }
 
-  // TODO: irgendwie noch einen Parameter ergänzen, damit Method Chaining klappt
-  def now = {
+  def now: this.type = {
     ttf = Some(moise.dsl.helper.now)
     this
   }
 
-  // TODO: irgendwie noch einen Parameter ergänzen, damit Method Chaining klappt
-  def never = {
+  def never: this.type = {
     ttf = Some(moise.dsl.helper.never)
     this
   }
 
-  def in(t: TimeSpan) = {
+  def in(t: TimeSpan): this.type = {
     ttf = Some(t)
     this
   }
 
-  // TODO: Klären warum ohne Angabe des Typs hier BoxedUnit zurückgegeben wird
-  def by_at_least (a: AgentCount): SchemeElement = {
+  def by_at_least (a: AgentCount): this.type = {
     min = Some(a.count)
     this
   }
