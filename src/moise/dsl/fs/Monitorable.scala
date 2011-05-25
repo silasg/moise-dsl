@@ -1,9 +1,9 @@
 package moise.dsl.fs
 
-trait Monitorable[T] {
+trait Monitorable {
   var monitoringScheme: Option[Scheme] = None
-  def monitored_by(s: Scheme) = {
+  def monitored_by(s: Scheme): this.type = {
     monitoringScheme = Some(s)
-    this.asInstanceOf[T]
+    this
   }
 }

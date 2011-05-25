@@ -12,6 +12,6 @@ case class EmptyCompatiblity(val from: Role) {
 
 case object compatibility extends RelType
 case class CompatibilityClass(val fromRole: Role,
-                              val toRole: Role) extends RoleRel[CompatibilityClass] {
+                              val toRole: Role) extends RoleRel {
   relType = Some(compatibility)
 }

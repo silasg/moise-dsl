@@ -20,7 +20,7 @@ object Link extends RoleRelSignature {
 }
 
 case class LinkClass(var fromRole: Option[Role] = None,
-                     var toRole: Option[Role] = None) extends RoleRel[LinkClass] {
+                     var toRole: Option[Role] = None) extends RoleRel {
   def from(r: Role) = {
     fromRole = Some(r)
     this

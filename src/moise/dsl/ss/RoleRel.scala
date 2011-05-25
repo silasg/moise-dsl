@@ -33,32 +33,32 @@ trait RoleRelSignature {
   def is_not_valid_for (g: BubbleTraitForSubGroups): RoleRelSignature
 }
 
-abstract case class RoleRel[R<:RoleRelSignature](var scope: Option[RelScope] = None,
+abstract case class RoleRel(var scope: Option[RelScope] = None,
                                                  var biDir: Option[Boolean] = None,
-                                                 var extendsToSubGroups: Option[Boolean] = None) extends RoleRelSignature{
+                                                 var extendsToSubGroups: Option[Boolean] = None) extends RoleRelSignature {
 
-  def between (groups: BubbleTraitForGroups) = {
+  def between (groups: BubbleTraitForGroups): this.type = {
     scope = Some(InterGroup)
-    this.asInstanceOf[R]
+    this
   }
 
-  def inside (group: BubbleTraitForGroup) = {
+  def inside (group: BubbleTraitForGroup): this.type = {
     scope = Some(IntraGroup)
-    this.asInstanceOf[R]
+    this
   }
 
-  def in (dir: RoleRelDirection) = {
+  def in (dir: RoleRelDirection): this.type = {
     biDir = Some(dir.biDir)
-    this.asInstanceOf[R]
+    this
   }
 
-  def is_valid_for (g: BubbleTraitForSubGroups) = {
+  def is_valid_for (g: BubbleTraitForSubGroups): this.type = {
     extendsToSubGroups = Some(true)
-    this.asInstanceOf[R]
+    this
   }
 
-  def is_not_valid_for (g: BubbleTraitForSubGroups) = {
+  def is_not_valid_for (g: BubbleTraitForSubGroups): this.type = {
     extendsToSubGroups = Some(false)
-    this.asInstanceOf[R]
+    this
   }
 }

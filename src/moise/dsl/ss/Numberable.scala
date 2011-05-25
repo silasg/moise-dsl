@@ -4,6 +4,9 @@ case class Number(i: Int) {
   def times = this
 }
 
+// Numerable must have a type parameter since Group has two methods namend "and" that have
+// an argument typed with a different derivation of Numerable. Overloading fails if we don't
+// type the Numerable Trait and use this.type as result type for our chainable methods
 trait Numerable[T] {
   var min: Option[BigInt] = None
   var max: Option[BigInt] = None

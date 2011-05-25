@@ -6,7 +6,7 @@ object Scheme {
 
 case class Scheme(val goal: SchemeElement,
                   var name: Option[String] = None,
-                  var missions: List[Mission] = List()) extends Monitorable[Scheme] {
+                  var missions: List[Mission] = List()) extends Monitorable {
 
   def named(n: String) = {
     name = Some(n)
