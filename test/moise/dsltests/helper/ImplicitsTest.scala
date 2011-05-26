@@ -20,10 +20,10 @@ class ImplicitsTest {
   @Test
   def can_use_inttotimespan = {
     // arrange
-    var expected = TimeSpan(1)
+    val expected = TimeSpan(1)
 
     // act
-    var is = intToTimeSpan(1)
+    val is = intToTimeSpan(1)
 
     // assert
     assertEquals(expected, is)
@@ -33,10 +33,10 @@ class ImplicitsTest {
   @Test
   def can_use_inttoagentcount = {
     // arrange
-    var expected = AgentCount(1)
+    val expected = AgentCount(1)
 
     // act
-    var is = 1.agent
+    val is = 1.agent
 
     // assert
     assertEquals(expected, is)
@@ -45,10 +45,10 @@ class ImplicitsTest {
   @Test
   def can_use_inttonumber = {
     // arrange
-    var expected = Number(1)
+    val expected = Number(1)
 
     // act
-    var is = 1.times
+    val is = 1.times
 
     // assert
     assertEquals(expected, is)
@@ -57,11 +57,11 @@ class ImplicitsTest {
   @Test
   def can_use_grouptosubgroup = {
     // arrange
-    var g = Group named "group"
-    var expected = SubGroup(g)
+    val g = Group named "group"
+    val expected = SubGroup(g)
 
     // act
-    var is = groupToSubGroup(g)
+    val is = groupToSubGroup(g)
 
     // assert
     assertEquals(expected, is)
@@ -71,11 +71,11 @@ class ImplicitsTest {
   @Test
   def can_use_roletogrouprole = {
     // arrange
-    var r = Role named "r"
-    var expected = GroupRole(Some(r))
+    val r = Role named "r"
+    val expected = GroupRole(Some(r))
 
     // act
-    var is = roleToGroupRole(r)
+    val is = roleToGroupRole(r)
 
     // assert
     assertEquals(expected, is)
@@ -84,11 +84,11 @@ class ImplicitsTest {
   @Test
   def can_use_cardinalitytypetocardinality = {
     // arrange
-    var r = Role named "r"
-    var expected = Cardinality(r)
+    val r = Role named "r"
+    val expected = Cardinality(r)
 
     // act
-    var is = cardinalityTypeToCardinality(r)
+    val is = cardinalityTypeToCardinality(r)
 
     // assert
     assertEquals(expected, is)
@@ -97,12 +97,12 @@ class ImplicitsTest {
   @Test
   def can_use_grouproletocardinality = {
     // arrange
-    var r = Role named "r"
-    var gr = GroupRole(Some(r))
-    var expected = Cardinality(r)
+    val r = Role named "r"
+    val gr = GroupRole(Some(r))
+    val expected = Cardinality(r)
 
     // act
-    var is = groupRoleToCardinality(gr)
+    val is = groupRoleToCardinality(gr)
 
     // assert
     assertEquals(expected, is)
@@ -111,12 +111,12 @@ class ImplicitsTest {
   @Test
   def can_use_subgrouptocardinality = {
     // arrange
-    var g = Group named "g"
-    var sg = SubGroup(g)
-    var expected = Cardinality(g)
+    val g = Group named "g"
+    val sg = SubGroup(g)
+    val expected = Cardinality(g)
 
     // act
-    var is = subGroupToCardinality(sg)
+    val is = subGroupToCardinality(sg)
 
     // assert
     assertEquals(expected, is)
