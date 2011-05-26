@@ -10,10 +10,17 @@ object Implicits {
   implicit def groupToSubGroup(g: Group) = SubGroup(g)
   implicit def roleToGroupRole(r: Role) = GroupRole(Some(r))
   implicit def cardinalityTypeToCardinality(c: CardinalityType) = Cardinality(c)
-
-  // diese beiden Methoden werden nur benötigt, da zufällig (?) SubGroups und GroupRoles
-  // sowohl Numerable als auch Cardinalities sind
-  implicit def groupRoleToCardinality(r: GroupRole) = Cardinality(r.role.get)
-  implicit def subGroupToCardinality(g: SubGroup) = Cardinality(g.group)
+  implicit def groupRoleToCardinality(r: GroupRole) = {
+    val c = Cardinality(r.role.get)
+    c.min = r.min
+    c.max = r.max
+    c
+  }
+  implicit def subGroupToCardinality(g: SubGroup) = {
+    val c = Cardinality(g.group)
+    c.min = g.min
+    c.max = g.max
+    c
+  }
   
 }

@@ -99,7 +99,11 @@ class ImplicitsTest {
     // arrange
     val r = Role named "r"
     val gr = GroupRole(Some(r))
+    gr.min = Some(8)
+    gr.max = Some(15)
     val expected = Cardinality(r)
+    expected.min = Some(8)
+    expected.max = Some(15)
 
     // act
     val is = groupRoleToCardinality(gr)
@@ -113,7 +117,11 @@ class ImplicitsTest {
     // arrange
     val g = Group named "g"
     val sg = SubGroup(g)
+    sg.min = Some(8)
+    sg.max = Some(15)
     val expected = Cardinality(g)
+    expected.min = Some(8)
+    expected.max = Some(15)
 
     // act
     val is = subGroupToCardinality(sg)

@@ -8,8 +8,8 @@ import org.junit.Assert._
 import moise.dsl.ss.{Cardinality, CardinalityType, Role, GroupRole, Group, SubGroup}
 import moise.{Cardinality => CardinalityXb,
               RoleValue => CTypeRoleXb, Group => CTypeGroupXb}
-import moise.dsl.helper.Implicits._
 import moise.dslconverter._
+import moise.dsl.helper.Implicits._
 
 class CardinalityConverterTest {
     @Before
