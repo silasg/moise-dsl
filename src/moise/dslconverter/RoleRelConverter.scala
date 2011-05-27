@@ -36,7 +36,7 @@ object RoleRelConverter {
     case `compatibility` => "compatibility"
     case `authority` => "authority"
     case `communication` => "communication"
-    case CustomLinkType(n) => n
+    case CustomLinkType(name) => name
   }
 
 }
