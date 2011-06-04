@@ -60,25 +60,5 @@ class MissionConverterTest {
     // assert
     assertEquals(expected, is)
   }
-
-
-  @Test
-  def can_reverse_min_and_max = {
-    // arrange
-    val expected = MissionXb(
-                      properties = None,
-                      goal = Seq(GoalXb("goal")),
-                      preferred = Seq(),
-                      id = "mission",
-                      min = Some(1),
-                      max = Some(10))
-    val mission = Mission named "mission" to_reach (Goal named "goal") by_at_most 10.agents and_at_least 1.agent
-
-    // act
-    val is = MissionConverter.convert(mission)
-
-    // assert
-    assertEquals(expected, is)
-  }
   
 }

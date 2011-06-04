@@ -10,20 +10,22 @@ import scala.collection.mutable.HashMap
 
 
 object SchemeElementConverter {
-  val usedPlanNames = new HashMap[Plan, String]
+  val usedPlanNames = new HashMap[SchemeElement, String]
 
-  def toGoalXb(s: SchemeElement) =
+  def convertToGoalXb(s: SchemeElement) =
     s match {
-      case g: Goal => GoalXb(g.name)
+      case g: Goal => rememberGoalName(g); GoalXb(g.name)
       case p: Plan => GoalXb(getNameForPlan(p))
     }
 
-  def toGoalDefXb(s: SchemeElement): GoalDefXb = {
+  def convertToGoalDefXb(s: SchemeElement): GoalDefXb = {
     s match {
-      case g: Goal => goalToGoalDefXb(g)
+      case g: Goal => rememberGoalName(g); goalToGoalDefXb(g)
       case p: Plan => convertToPlanXb(p)
     }
   }
+
+  def resetUsedPlanNames = usedPlanNames.clear
 
   // Goals sind hier immer Blätter des Schema-Baums, daher keine Rekursion
   private def goalToGoalDefXb(g: Goal) = GoalDefXb(argument = Seq(),
@@ -37,7 +39,7 @@ object SchemeElementConverter {
  // Diese Methode erstellt das Goal um den Plan als Wrapper
  private def convertToPlanXb(p: Plan) = {
    val planXb = PlanXb(properties = None,
-                        goal = p.children map { toGoalDefXb _},
+                        goal = p.children map { convertToGoalDefXb _},
                         operator = convertOperator(p.operator),
                         successrate = p.successRate)
    GoalDefXb(argument = Seq(),
@@ -74,4 +76,6 @@ object SchemeElementConverter {
     }
     usedPlanNames.getOrElse(p, generatePlanName(p))
   }
+
+  private def rememberGoalName(g: Goal) = usedPlanNames += ((g, g.name))
 }
