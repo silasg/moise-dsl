@@ -18,7 +18,7 @@ object GroupConverter {
       id = g.name,
       min = min,
       max = max,
-      monitoringscheme = g.monitoringScheme map { _.name.getOrElse("") }) // falls als monitoring Scheme ein Schema ohne name/id angegeben wurde (was syntaktisch korrekt aber hier sinnfrei ist), "" übergeben
+      monitoringscheme = g.monitoringScheme map { _.name.get }) // name ist nie None da MonitoringScheme einen Namen erzwingt
 
    private def convertRoles(r: ListBuffer[GroupRole]) = {
     if (r.length == 0) None

@@ -8,13 +8,15 @@ case class Scheme(val goal: SchemeElement,
                   var name: Option[String] = None,
                   var missions: List[Mission] = List()) extends Monitorable {
 
-  def named(n: String) = {
-    name = Some(n)
-    this
-  }
+  def named(n: String) = new MonitoringScheme(goal, n, missions)
 
-  def with_missions(m: Mission*) = {
+  def with_missions(m: Mission*): this.type = {
     missions = m.toList
     this
   }
 }
+
+class MonitoringScheme(goal: SchemeElement,
+                        name: String,
+                        missions: List[Mission] = List()) extends Scheme(goal, Some(name), missions)
+

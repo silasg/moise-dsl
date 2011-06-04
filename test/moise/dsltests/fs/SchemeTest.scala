@@ -36,7 +36,7 @@ class SchemeTest {
   def can_create_maximal_scheme = {
     // arrange
     val goal = Goal named "test goal"
-    val mon = Scheme with_goal goal
+    val mon = Scheme with_goal goal named "mon"
     val m1 = Mission named "m1" to_reach goal
     val m2 = Mission named "m2" to_reach goal
 
