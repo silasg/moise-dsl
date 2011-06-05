@@ -48,7 +48,7 @@ class SchemeElementConverterTest {
     // arrange
     val g1 = Goal named "goal"
     val g2 = Goal named "2"
-    val expected = GoalXb("_goal_2")
+    val expected = GoalXb("goal_2_")
 
     // act
     val is = SchemeElementConverter.convertToGoalXb(g1 parallel_with g2)
@@ -140,7 +140,7 @@ class SchemeElementConverterTest {
                           goal = Seq(getDef("goal"), getDef("2")),
                           operator = ParallelXb,
                           successrate = None)),
-              id = "_goal_2",
+              id = "goal_2_",
               min = None,
               ds = None,
               typeValue = None,
@@ -164,7 +164,7 @@ class SchemeElementConverterTest {
                           goal = Seq(getDef("goal"), getDef("2")),
                           operator = ChoiceXb,
                           successrate = None)),
-              id = "_goal_2",
+              id = "goal_2_",
               min = None,
               ds = None,
               typeValue = None,
@@ -188,7 +188,7 @@ class SchemeElementConverterTest {
                           goal = Seq(getDef("goal"), getDef("2")),
                           operator = SequenceXb,
                           successrate = None)),
-              id = "_goal_2",
+              id = "goal_2_",
               min = None,
               ds = None,
               typeValue = None,
@@ -212,7 +212,7 @@ class SchemeElementConverterTest {
                           goal = Seq(getDef("goal"), getDef("2")),
                           operator = ParallelXb,
                           successrate = Some(0.5))),
-              id = "_goal_2",
+              id = "goal_2_",
               min = Some(1),
               ds = Some("desc"),
               typeValue = Some(AchievementXb),
@@ -236,9 +236,9 @@ class SchemeElementConverterTest {
     val plan1 = g1 then g2
     val plan2 = g1 or g2
     val plan3 = g1 parallel_with g2
-    val exp1 = "_goal_2"
-    val exp2 = "_goal_2_"
-    val exp3 = "_goal_2__"
+    val exp1 = "goal_2_"
+    val exp2 = "goal_2__"
+    val exp3 = "goal_2___"
     val exp4 = exp1
 
     // act
@@ -260,9 +260,9 @@ class SchemeElementConverterTest {
     // arrange
     val g1 = Goal named "goal"
     val g2 = Goal named "2"
-    val g3 = Goal named "_goal_2"
+    val g3 = Goal named "goal_2_"
     val plan = g1 then g2
-    val expected = "_goal_2_"
+    val expected = "goal_2__"
 
     // act
     SchemeElementConverter.convertToGoalDefXb(g3)

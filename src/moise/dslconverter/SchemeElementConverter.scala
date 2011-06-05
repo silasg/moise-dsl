@@ -61,16 +61,22 @@ object SchemeElementConverter {
                                                   case `maintain` => MaintenanceXb
                                                  }
 
+  /**
+   * TODO: this Method is way to complicated to read
+   */
   private def getNameForPlan(p: Plan): String = {
     def generatePlanName(p: Plan) = {
       var name = ""
-      for (c <- p.children) c match {
-        case g: Goal =>  name = name + "_" + g.name
-        case pl: Plan => name = name + "_" + getNameForPlan(pl)
+      if (p.name.isEmpty) {
+        for (c <- p.children) c match {
+          case g: Goal =>  name = name + g.name + "_"
+          case pl: Plan => name = name + getNameForPlan(pl) + "_"
+        }
+        def nameAlreadyUsed = usedPlanNames.exists(_._2 == name)
+        while (nameAlreadyUsed) name = name + "_"
       }
-
-      def nameAlreadyUsed = usedPlanNames.exists(_._2 == name)
-      while (nameAlreadyUsed) name = name + "_"
+      else
+        name = p.name.get
       usedPlanNames += ((p, name))
       name
     }

@@ -20,9 +20,15 @@ case class Parallel(override val children: List[SchemeElement]) extends Plan(chi
 
 abstract case class Plan(val children: List[SchemeElement],
                           val operator: PlanOperator,
-                          var successRate: Option[Double] = None) extends SchemeElement {
+                          var successRate: Option[Double] = None,
+                          var name: Option[String] = None) extends SchemeElement {
   def with_a_success_rate_of(d: Double) = {
     successRate = Some(d)
+    this
+  }
+
+  def named(s: String) = {
+    name = Some(s)
     this
   }
 }

@@ -55,7 +55,7 @@ class IntegrationTest {
         val exterior_painted = Goal named "exterior_painted" to reach in 20.minutes
         val interior_painted = Goal named "interior_painted" to reach in 30.minutes
 
-        val house_built = site_prepared then floors_laid then walls_built then (windows_fitted parallel_with roof_built parallel_with doors_fitted) then (plumbing_installed parallel_with electrical_system_installed parallel_with exterior_painted) then interior_painted
+        val house_built = site_prepared then floors_laid then walls_built then (windows_fitted parallel_with roof_built parallel_with doors_fitted) then (plumbing_installed parallel_with electrical_system_installed parallel_with exterior_painted) then interior_painted named "house_built"
 
         val management_of_house_building = Mission named "management_of_house_building" to_reach house_built by_exactly 1.agent
         val prepare_site = Mission named "prepare_site" to_reach site_prepared by_exactly 1.agent
@@ -129,19 +129,19 @@ class IntegrationTest {
           </structural-specification>
           <functional-specification>
             <scheme id="build_house_sch">
-              <goal id="_site_prepared_floors_laid_walls_built__windows_fitted_roof_built_doors_fitted__plumbing_installed_electrical_system_installed_exterior_painted_interior_painted">
+              <goal id="house_built">
                 <plan operator="sequence">
                   <goal ttf="20 minutes" ds="prepare the site for the next tasks" id="site_prepared"></goal>
                   <goal ttf="25 minutes" id="floors_laid"></goal>
                   <goal ttf="40 minutes" id="walls_built"></goal>
-                  <goal id="_windows_fitted_roof_built_doors_fitted">
+                  <goal id="windows_fitted_roof_built_doors_fitted_">
                     <plan operator="parallel">
                       <goal ttf="30 minutes" id="roof_built"></goal>
                       <goal ttf="10 minutes" id="windows_fitted"></goal>
                       <goal ttf="10 minutes" id="doors_fitted"></goal>
                     </plan>
                   </goal>
-                  <goal id="_plumbing_installed_electrical_system_installed_exterior_painted">
+                  <goal id="plumbing_installed_electrical_system_installed_exterior_painted_">
                     <plan operator="parallel">
                       <goal ttf="20 minutes" id="plumbing_installed"></goal>
                       <goal ttf="20 minutes" id="electrical_system_installed"></goal>
@@ -151,7 +151,7 @@ class IntegrationTest {
                   <goal ttf="30 minutes" id="interior_painted"></goal>
                 </plan>
               </goal>
-              <mission max="1" min="1" id="management_of_house_building"><goal id="_site_prepared_floors_laid_walls_built__windows_fitted_roof_built_doors_fitted__plumbing_installed_electrical_system_installed_exterior_painted_interior_painted"></goal></mission>
+              <mission max="1" min="1" id="management_of_house_building"><goal id="house_built"></goal></mission>
               <mission max="1" min="1" id="prepare_site"><goal id="site_prepared"></goal></mission>
               <mission max="1" min="1" id="lay_floors"><goal id="floors_laid"></goal></mission>
               <mission max="1" min="1" id="build_walls"><goal id="walls_built"></goal></mission>
