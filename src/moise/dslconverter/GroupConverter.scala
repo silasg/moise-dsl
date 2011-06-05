@@ -34,7 +34,7 @@ object GroupConverter {
   // das xsd sagt zwar, es seinen 0...* erlaubt, aber das erscheint unlogisch
   private def convertSubGroups(s: ListBuffer[SubGroup]): Seq[SubGroupsXb] =
     if (s.length == 0 ) Seq()
-    else Seq(SubGroupsXb(includegroupspecification = Seq(),
+    else Seq(SubGroupsXb(includegroupspecification = Seq(), // includegroupspecification is only needed for URIs to external XML files with group specification so it's not needed here
                 groupspecification = s map { s => convertSubGroup(s.group, s.min, s.max)}))
 
 
@@ -42,7 +42,7 @@ object GroupConverter {
                                   compatibilities: List[CompatibilityClass]) =
     if (cardinalities.length == 0 && compatibilities.length == 0 ) None
     else Some(
-       ConstraintsXb(cardinality = cardinalities map { CardinalityConverter.convertCardinality(_) },
+      ConstraintsXb(cardinality = cardinalities.toList map { CardinalityConverter.convertCardinality(_) },
                 compatibility = compatibilities map { RoleRelConverter.convertCompatibility(_) })
       )
 
