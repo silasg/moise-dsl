@@ -138,6 +138,18 @@ class LinkTest {
     assertEquals(Some(communication), l.relType)
   }
 
+
+  @Test
+  def can_create_acquaintance_link = {
+    // arrange
+
+    // act
+    val l = Link expresses acquaintance
+
+    // assert
+    assertEquals(Some(acquaintance), l.relType)
+  }
+
   @Test
   def can_create_custom_link = {
     // arrange

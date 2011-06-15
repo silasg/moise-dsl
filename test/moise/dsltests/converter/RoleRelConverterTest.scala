@@ -97,7 +97,26 @@ class RoleRelConverterTest {
 
 
   @Test
-  def can_convert_Empty_link = {
+  def can_convert_acquaintance_link = {
+    // arrange
+    val link = Link expresses acquaintance
+    val expected = LinkXb(from = None,
+                          to = None,
+                          typeValue = Some("acquaintance"),
+                          scope = IntragroupXb,
+                          extendssubgroups = false,
+                          bidir = false)
+
+    // act
+    val is = RoleRelConverter.convertLink(link)
+
+    // assert
+    assertEquals(expected, is)
+  }
+
+
+  @Test
+  def can_convert_empty_link = {
     // arrange
     val link = LinkClass()
     val expected = LinkXb(from = None,

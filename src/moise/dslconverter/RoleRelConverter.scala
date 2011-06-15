@@ -1,6 +1,6 @@
 package moise.dslconverter
 
-import moise.dsl.ss.{RelType, CustomLinkType, authority, communication, compatibility,
+import moise.dsl.ss.{RelType, CustomLinkType, authority, communication, compatibility, acquaintance,
                      LinkClass, CompatibilityClass, RelScope, InterGroup, IntraGroup, RoleRel}
 import moise.{Compatibility => CompatibilityXb, Link => LinkXb,
               Intergroup => IntergroupXb, Intragroup => IntragroupXb}
@@ -47,6 +47,7 @@ object RoleRelConverter {
     case `compatibility` => "compatibility"
     case `authority` => "authority"
     case `communication` => "communication"
+    case `acquaintance` => "acquaintance"
     case CustomLinkType(name) => name
   }
 
