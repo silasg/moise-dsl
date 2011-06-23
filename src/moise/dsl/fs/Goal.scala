@@ -1,9 +1,7 @@
 package moise.dsl.fs
 
 object Goal {
-  def named(s: String) = {
-    new Goal(s)
-  }
+  def named(s: String) = Goal(s)
 }
 
 

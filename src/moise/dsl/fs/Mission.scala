@@ -1,7 +1,7 @@
 package moise.dsl.fs
 
 object Mission {
-  def named(s: String) = new EmptyMission(s)
+  def named(s: String) = EmptyMission(s)
 }
 
 // nötig um mindestens ein Goal in der Mission zu erzwingen
