@@ -2,7 +2,7 @@
 package moise.dslconverter
 
 import moise.dsl.ss.{Role, GroupRole}
-import moise.{RoleDefType => RoleDefXb, Role => RoleXb, Extends => ExtendsXb}
+import oml.{RoleDefType => RoleDefXb, Role => RoleXb, Extends => ExtendsXb}
 
 object RoleConverter {
 

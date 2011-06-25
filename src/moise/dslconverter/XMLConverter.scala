@@ -1,7 +1,7 @@
 package moise.dslconverter
 
 import moise.dsl.os.OS
-import moise.{`package`, OsType => OsXb}
+import oml.{`package`, OsType => OsXb}
 import scala.xml.Elem
 
 object XMLConverter {

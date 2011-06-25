@@ -1,7 +1,7 @@
 package moise.dslconverter
 
 import moise.dsl.fs.Scheme
-import moise.{Scheme => SchemeXb}
+import oml.{Scheme => SchemeXb}
 
 object SchemeConverter {
   def convert(s: Scheme) = SchemeXb(properties = None,

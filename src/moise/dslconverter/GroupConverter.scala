@@ -1,8 +1,8 @@
 package moise.dslconverter
 
 import moise.dsl.ss.{Group, GroupRole, LinkClass, CompatibilityClass, SubGroup, Cardinality}
-import moise.{GroupSpecificationType => GroupXb, Formationconstraints => ConstraintsXb,
-              Roles => RolesXb, Links => LinksXb, Subgroups => SubGroupsXb}
+import oml.{GroupSpecificationType => GroupXb, Formationconstraints => ConstraintsXb,
+            Roles => RolesXb, Links => LinksXb, Subgroups => SubGroupsXb}
 
 import scala.collection.mutable.ListBuffer
 

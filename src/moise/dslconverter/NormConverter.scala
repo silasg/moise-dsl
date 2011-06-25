@@ -1,7 +1,7 @@
 package moise.dslconverter
 
 import moise.dsl.ns.{Norm, NormType, Obligation, Permission}
-import moise.{Norm => NormXb}
+import oml.{Norm => NormXb}
 
 object NormConverter {
 

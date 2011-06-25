@@ -7,7 +7,7 @@ import org.junit.Assert._
 
 import moise.dsl.fs.{Scheme, Goal, Mission}
 import moise.dslconverter.SchemeConverter
-import moise.{Scheme => SchemeXb, GoalDefType => GoalDefXb, Mission => MissionXb, Goal => GoalXb}
+import oml.{Scheme => SchemeXb, GoalDefType => GoalDefXb, Mission => MissionXb, Goal => GoalXb}
 
 class SchemeConverterTest {
   @Before

@@ -1,8 +1,8 @@
 package moise.dslconverter
 
 import moise.dsl.ss.{Cardinality, CardinalityType, Role}
-import moise.{Cardinality => CardinalityXb,
-              RoleValue => CTypeRoleXb, Group => CTypeGroupXb}
+import oml.{Cardinality => CardinalityXb,
+            RoleValue => CTypeRoleXb, Group => CTypeGroupXb}
 
 object CardinalityConverter {
   def convertCardinality(c: Cardinality) = CardinalityXb(min = c.min,

@@ -8,7 +8,7 @@ import org.junit.Assert._
 import moise.dsl.ss.{Role, GroupRole}
 import moise.dsl.helper.Implicits._
 import moise.dslconverter.RoleConverter
-import moise.{RoleDefType => RoleDefXb, Role => RoleXb, Extends => ExtendsXb}
+import oml.{RoleDefType => RoleDefXb, Role => RoleXb, Extends => ExtendsXb}
 
 
 

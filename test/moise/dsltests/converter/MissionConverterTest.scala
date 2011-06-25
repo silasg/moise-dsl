@@ -8,7 +8,7 @@ import org.junit.Assert._
 import moise.dsl.fs.{Goal, Mission}
 import moise.dsl.helper.Implicits._
 import moise.dslconverter.MissionConverter
-import moise.{Preferred => PreferredXb, Mission => MissionXb, Goal => GoalXb}
+import oml.{Preferred => PreferredXb, Mission => MissionXb, Goal => GoalXb}
 
 class MissionConverterTest {
   @Before

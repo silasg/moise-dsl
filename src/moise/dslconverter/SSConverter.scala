@@ -1,8 +1,8 @@
 package moise.dslconverter
 
 import moise.dsl.ss.{SS, Role, CustomLinkType}
-import moise.{SsType => SsXb, Roledefinitions => RoleDefsXb,
-              Linktypes => LinkTypesXb, Linktype => LinkTypeXb}
+import oml.{SsType => SsXb, Roledefinitions => RoleDefsXb,
+            Linktypes => LinkTypesXb, Linktype => LinkTypeXb}
 
 object SSConverter {
   def convert(ss: SS) = SsXb(properties = None,

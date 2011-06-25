@@ -1,7 +1,7 @@
 package moise.dslconverter
 
 import moise.dsl.ns.NS
-import moise.{NsType => NsXb}
+import oml.{NsType => NsXb}
 
 object NSConverter {
   def convert(ns: NS) = NsXb(properties = None,

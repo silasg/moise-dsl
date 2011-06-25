@@ -6,8 +6,8 @@ import org.junit.Test
 import org.junit.Assert._
 
 import moise.dsl.ss.{Cardinality, CardinalityType, Role, GroupRole, Group, SubGroup}
-import moise.{Cardinality => CardinalityXb,
-              RoleValue => CTypeRoleXb, Group => CTypeGroupXb}
+import oml.{Cardinality => CardinalityXb,
+            RoleValue => CTypeRoleXb, Group => CTypeGroupXb}
 import moise.dslconverter._
 import moise.dsl.helper.Implicits._
 

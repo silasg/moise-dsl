@@ -1,7 +1,7 @@
 package moise.dslconverter
 
 import moise.dsl.fs.Mission
-import moise.{Preferred => PreferredMissionXb, Mission => MissionXb}
+import oml.{Preferred => PreferredMissionXb, Mission => MissionXb}
 
 
 object MissionConverter {

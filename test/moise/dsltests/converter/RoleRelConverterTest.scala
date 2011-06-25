@@ -6,8 +6,8 @@ import org.junit.Test
 import org.junit.Assert._
 
 import moise.dsl.ss._
-import moise.{Compatibility => CompatibilityXb, Link => LinkXb,
-              Intergroup => IntergroupXb, Intragroup => IntragroupXb}
+import oml.{Compatibility => CompatibilityXb, Link => LinkXb,
+            Intergroup => IntergroupXb, Intragroup => IntragroupXb}
 import moise.dslconverter.RoleRelConverter
 
 class RoleRelConverterTest {

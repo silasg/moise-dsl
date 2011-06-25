@@ -3,10 +3,10 @@ package moise.dsltests.converter
 import moise.dsl.ss._
 import moise.dsl.fs.{Scheme, Goal}
 import moise.dsl.helper.Implicits._
-import moise.{GroupSpecificationType => GroupXb, Formationconstraints => ConstraintsXb,
-              Roles => RolesXb, Role => RoleXb, Links => LinksXb, Link => LinkXb,
-              Intragroup => IntragroupXb, Subgroups => SubGroupsXb, Compatibility => CompatibilityXb,
-              Cardinality => CardinalityXb, RoleValue => CTypeRoleXb}
+import oml.{GroupSpecificationType => GroupXb, Formationconstraints => ConstraintsXb,
+            Roles => RolesXb, Role => RoleXb, Links => LinksXb, Link => LinkXb,
+            Intragroup => IntragroupXb, Subgroups => SubGroupsXb, Compatibility => CompatibilityXb,
+            Cardinality => CardinalityXb, RoleValue => CTypeRoleXb}
 import moise.dslconverter.GroupConverter
 
 import org.junit.After

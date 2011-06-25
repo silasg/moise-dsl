@@ -2,9 +2,9 @@ package moise.dslconverter
 
 import moise.dsl.fs.{Goal, Plan, SchemeElement, PlanOperator, Choice, Sequence, 
                      Parallel, GoalTypeVerb, achieve, maintain}
-import moise.{Goal => GoalXb, GoalDefType => GoalDefXb, PlanType => PlanXb,
-                Parallel => ParallelXb, Sequence => SequenceXb, Choice => ChoiceXb,
-                Achievement => AchievementXb, Maintenance => MaintenanceXb, GoalType => GoalTypeXb}
+import oml.{Goal => GoalXb, GoalDefType => GoalDefXb, PlanType => PlanXb,
+            Parallel => ParallelXb, Sequence => SequenceXb, Choice => ChoiceXb,
+            Achievement => AchievementXb, Maintenance => MaintenanceXb, GoalType => GoalTypeXb}
 
 import scala.collection.mutable.HashMap
 

@@ -3,9 +3,9 @@ package moise.dsltests.converter
 
 import moise.dsl.fs.{Goal, Plan, SchemeElement, PlanOperator, Choice, Sequence,
                      Parallel, GoalTypeVerb, achieve, maintain, reach}
-import moise.{Goal => GoalXb, GoalDefType => GoalDefXb, PlanType => PlanXb,
-                Parallel => ParallelXb, Sequence => SequenceXb, Choice => ChoiceXb,
-                Achievement => AchievementXb, Maintenance => MaintenanceXb, GoalType => GoalTypeXb}
+import oml.{Goal => GoalXb, GoalDefType => GoalDefXb, PlanType => PlanXb,
+            Parallel => ParallelXb, Sequence => SequenceXb, Choice => ChoiceXb,
+            Achievement => AchievementXb, Maintenance => MaintenanceXb, GoalType => GoalTypeXb}
 import moise.dslconverter.SchemeElementConverter
 import moise.dsl.helper.Implicits._
 import scala.collection.mutable.HashMap

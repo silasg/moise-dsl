@@ -10,7 +10,7 @@ import moise.dsl.fs.{Mission, Goal}
 import moise.dsl.ns.Norm
 import moise.dsl.helper.now
 import moise.dslconverter.NormConverter
-import moise.{Norm => NormXb}
+import oml.{Norm => NormXb}
 import moise.dslconverter._
 import moise.dsl.helper.Implicits._
 

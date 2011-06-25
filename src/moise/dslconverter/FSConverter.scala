@@ -1,7 +1,7 @@
 package moise.dslconverter
 
 import moise.dsl.fs.FS
-import moise.{FsType => FsXb}
+import oml.{FsType => FsXb}
 
 object FSConverter {
   def convert(fs: FS) = FsXb(properties = None,

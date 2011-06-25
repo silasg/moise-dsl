@@ -1,7 +1,7 @@
 package moise.dslconverter
 
 import moise.dsl.os.OS
-import moise.{OsType => OsXb}
+import oml.{OsType => OsXb}
 
 object OSConverter {
   def convert(os: OS) = OsXb(properties = None,
