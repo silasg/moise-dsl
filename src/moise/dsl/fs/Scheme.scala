@@ -17,6 +17,6 @@ case class Scheme(val goal: SchemeElement,
 }
 
 class MonitoringScheme(goal: SchemeElement,
-                        name: String,
-                        missions: List[Mission] = List()) extends Scheme(goal, Some(name), missions)
+                        val monitorName: String,
+                        missions: List[Mission] = List()) extends Scheme(goal, Some(monitorName), missions)
 

@@ -8,5 +8,5 @@ object SchemeConverter {
                                        goal = SchemeElementConverter.convertToGoalDefXb(s.goal),
                                        mission = s.missions map { MissionConverter.convert(_)},
                                        id = s.name,
-                                       monitoringscheme =  s.monitoringScheme.map(_.name.get))
+                                       monitoringscheme =  s.monitoringScheme.map(_.monitorName))
 }
