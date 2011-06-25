@@ -1,6 +1,6 @@
 package moise.dslinterpreter
 
-import scala.tools.nsc._
+import scala.tools.nsc.{Interpreter, Settings}
 import scala.io.Source
 
 import moise.dsl.os.OS

@@ -61,9 +61,8 @@ object SchemeElementConverter {
                                                   case `maintain` => MaintenanceXb
                                                  }
 
-  /**
-   * TODO: this Method is way to complicated to read
-   */
+  
+  // TODO: this Method is way to complicated to read
   private def getNameForPlan(p: Plan): String = {
     def generatePlanName(p: Plan) = {
       var name = ""
