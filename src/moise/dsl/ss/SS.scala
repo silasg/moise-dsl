@@ -1,12 +1,6 @@
 package moise.dsl.ss
 
-trait SSSignature {
-  def with_roles (roles: Role*): SS
-  def with_linktypes (linktypes: CustomLinkType*): SS
-  def with_group(group: Group): SS
-}
-
-object SS extends SSSignature {
+object SS {
   def with_roles (r: Role*) = SS() with_roles (r: _*)
   def with_linktypes (l: CustomLinkType*) = SS() with_linktypes (l: _*)
   def with_group(g: Group) = SS() with_group g
