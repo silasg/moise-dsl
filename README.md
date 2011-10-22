@@ -1,6 +1,6 @@
 # Welcome to Moise-DSL!
 ## About
-Moise-DSL is embedded domain-specifig language for formulating multi-agent organizations to use in [Moise project](http://moise.sourceforge.net/), a Java implementation of Moise+ model for specifying organizations in multi-agent systems. 
+Moise-DSL is embedded domain-specifig language for formulating multi-agent organizations to use in [Moise project](http://moise.sourceforge.net/), a Java implementation of Moise+ model for specifying organizations in multi-agent systems. It lowers the gap between model and implementation of multi-agent systems by providing an easy to understand, read and write language that is statically typed, valid Scala code and as such can be checked at compile time.
 
 [moise-scalaxb](https://github.com/silasg/moise-scalaxb) is needed as a library for Moise-DSL, since it is needed  to write the XML-based _Organization Modelling Language (OML)_ expected by Moise.
 
