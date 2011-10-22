@@ -18,7 +18,7 @@ Moise-DSL was written using Scala 2.8.1 and Netbeans 6.9 with Scala Plugin but y
 
 ## Documentation
 ### Remarks
-Please contact me if you have any questions or need an English translation of parts of the document. I'll try to provide it. I've written Moise-DSL as part of my studies of Information Systems at University at Duisburg-Essen in Germany so it's available in German only. That's also the reason why there are some chapters dealing with basic stuff like multi-agent systems or domain-specific languages in general.
+Please contact me if you have any questions or need an English translation of parts of the document provided in doc folder. I'll try to provide it. I've written Moise-DSL as part of my studies of Information Systems at University at Duisburg-Essen in Germany so it's available in German only. That's also the reason why there are some chapters dealing with basic stuff like multi-agent systems or domain-specific languages in general.
 
 ### TOC
 1. This chapter provides goal and motivation (lower the semantic gap between model of multi-agent systems/ organizations and their implementation)
